@@ -6,7 +6,7 @@ function NavBar() {
   return (
     <nav>
       <ul>
-        <NavLink to='/' activeClassName="selected" activeStyle={{
+        <NavLink to='/home' activeClassName="selected" activeStyle={{
           fontWeight: "bold",
           color: "white"
         }}>
