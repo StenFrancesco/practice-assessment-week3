@@ -5,23 +5,35 @@ import axios from 'axios'
 
 function DutyPage() {
 
+  const statusText = [
+    {
+      status: "Ready."
+    },
+    {
+      status: "Loading doctors list......"
+    },
+    {
+      status: "List of all available doctors loaded."
+    }
+  ]
+
+  const [searchState, set_searchState] = useState(statusText[0].status)
   const [data, set_data] = useState([])
 
   useEffect(() => {
 
-    const search = async () => {
+    const listDoctors = async () => {
+
+      set_searchState(statusText[1].status)
 
       const response = await axios.get("https://my-json-server.typicode.com/Codaisseur/patient-doctor-data/doctors")
-      console.log("response", response.data);
+
       set_data(response.data)
+      set_searchState(statusText[2].status);
 
     }
-    search();
+    listDoctors();
   }, []);
-
-
-
-
 
   return (
     <div>
@@ -30,16 +42,16 @@ function DutyPage() {
       <Appointment />
 
       <table align="center">
-        <tr>
-          <td>Doctor</td>
-          <td>Availability</td>
-        </tr>
-        {data.map(doctorslist => <tr><td>{doctorslist.doctor}</td>{doctorslist.onDuty ? <td>On Duty</td> : <td>Not on Duty</td>}</tr>)}
+        <tbody>
+          <tr>
+            <td>Doctor</td>
+            <td>Availability</td>
+          </tr>
+          {data.map(doctorslist => <tr key={doctorslist.id}><td>{doctorslist.doctor}</td>{doctorslist.onDuty ? <td>On Duty</td> : <td>Not on Duty</td>}</tr>)}
+        </tbody>
       </table>
+      <p>{searchState}</p>
     </div>
-
-
-
 
   );
 }
