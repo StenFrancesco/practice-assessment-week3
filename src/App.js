@@ -14,10 +14,10 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/home" exact={true} component={HomePage} />
-          <Route path="/dutypage" exact={true} component={DutyPage} />
-          <Route path="/patientsignup" exact={true} component={PatientSignUp} />
-          <Route path="/patientdatabase" exact={true} component={PatientDatabase} />
+          <Route path="/" exact={true} component={HomePage} />
+          <Route path="/dutypage" component={DutyPage} />
+          <Route path="/patientsignup" component={PatientSignUp} />
+          <Route path="/patientdatabase" component={PatientDatabase} />
         </Switch>
       </div>
     </Router>

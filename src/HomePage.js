@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import Appointment from './components/Appointment'
-import DutyPage from './DutyPage';
-import PatientSignUp from './PatientSignUp';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -17,7 +15,7 @@ function HomePage() {
       </p>
       <p>
         <Link to="/patientsignup">
-          <button onClick={PatientSignUp}>I am a new patient</button>
+          <button type="button">I am a new patient</button>
         </Link>
       </p>
     </div>

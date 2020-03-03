@@ -24,3 +24,15 @@ li {
   color: white;
   list-style: none;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+td {
+  width: 300px;
+}

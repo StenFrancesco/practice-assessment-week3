@@ -5,8 +5,10 @@ import { useForm } from 'react-hook-form';
 function PatientSignUp() {
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = submitted_data => {
     console.log(submitted_data)
+    alert("Your data has been entered into the system");
   }
 
   return (
